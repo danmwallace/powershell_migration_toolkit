@@ -31,7 +31,7 @@ $DomainFilter_Param = "olddomain.com" # The domain part of the UPN to filter (e.
 
 The following is an example of how to use the Migration Helper Script, assuming we are using MigrationWiz as an example. Other tools should work similarly. You of course may need to make alterations depending on your requirements.
 
-In the example below, let's assume you are migrating from a Microsoft 365 Tenant to another Microsoft 365 Tenant. As apart of the migration, you're also standardizing to a new format, e.g switching from firstname@domain.com to firstname.lastname@domain.com.
+In the example below, let's assume you are migrating from a Microsoft 365 Tenant to another Microsoft 365 Tenant. As apart of the migration, you're also standardizing to a new format, e.g switching from `firstname@domain.com` to `firstname.lastname@domain.com`.
 
 ## Preparation: Create CSVs
 
@@ -41,7 +41,7 @@ You will need (2) CSV files:
   * `PostMigrationSourceEmail` : The intended email for the identity, post-migration. The primary email for the user will be changed to this when running the script.
   * `DestinationAlias` : The intended alias for the identity on the destination tenant. Only supports (1) alias at the moment. Useful when switching from `firstname@domain.com` to `firstname.lastname@domain.com`, and you need to keep emails sent to `firstname@domain.com`.
   * `DestinationStagingEmail` : The "staging" email in the destination tenant for the user. This is often a temporary identity, such as an `domain.onmicrosoft.com` account. It is typically the identity you migrate data to in MigrationWiz.
-  * `PostMigrationDestinationEmail` : The intended primary email for the user in the destination tenant, post-migration. Using the current example, this would be firstname.lastname@domain.com
+  * `PostMigrationDestinationEmail` : The intended primary email for the user in the destination tenant, post-migration. Using the current example, this would be `firstname.lastname@domain.com`
   * `DestinationPassword` : The password that should be assigned to the account so they can login post-migration.
   * `AccountEnabledAtSource` : Controls whether or not the identity at the Source is enabled. Set to `$true` or `$false`. Is evaluated each time the script is ran.
   * `AccountEnabledAtDestination` : Controls whether or not the identity at the Destination is enabled. Set to `$true` or `$false`. Is evaluated each time the script is ran.
@@ -77,9 +77,9 @@ Run the `MigrationReport.ps1` script and collect the data about your mailboxes. 
 Assuming you are doing a cutover migration in the evening, here is how this would work:
 1. Run `MigrateUsers.ps1 -UsersCSV Users.csv -TenantsCSV Tenants.CSV -Target Source` 
 2. Remove domains from the old tenant, and verify domain in the new tenant
-3. At this point, users will be on gkffservices.onmicrosoft.com in source tenant due to script
-4. In MigrationWiz, switch Source using the Change Domain tool to change to gkffservices.onmicrosoft.com
-5. At this point, users in the Target GKFF Tenant will still be set to using their temporary domain (dan.wallace@gkff.tech). We need to add their old email address as an alias (dan@migrateddomain.com) and convert them to use the new domain (dan.wallace@migrateddomain.com), keeping the domain prefix (mail nickname)
+3. At this point, users will be on `domain.onmicrosoft.com` in source tenant
+4. In MigrationWiz, switch Source using the Change Domain tool to change to `domain.onmicrosoft.com`
+5. At this point, users in the Target Tenant will still be set to using their temporary domain (`firstname.lastname@domain.com`). We need to add their old email address as an alias (`firstname@domain.com`) and convert them to use the new domain (`firstname.lastname@domain.com`), keeping the domain prefix (mail nickname)
 6. Using the `ConvertEmails.ps1` script, convert the users in the new tenant from their staged account to their final account.
 7. Complete Final sync
 
