@@ -82,7 +82,7 @@ Let's use a common scenario as an example of how to use this toolkit:
 
 Run the `MigrationReport.ps1` script and collect the data about your mailboxes. The report will include:
 * Identities (The `UserPrincipalName`)
-* OneDrive usage
+* OneDrive usage (*Not working yet unfortunately*)
 * Mailbox usage
 * Group memberships
 * Licensing
