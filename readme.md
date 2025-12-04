@@ -87,7 +87,7 @@ Run the `MigrationReport.ps1` script and collect the data about your mailboxes. 
 * Group memberships
 * Licensing
 
-## Step 2: Complete the Cutover & Domain move
+## Step 2: Complete the Cutover & Move the Domain
 
 Assuming you are doing a cutover migration in the evening, here is how this would work:
 1. Run `MigrateUsers.ps1 -UsersCSV Users.csv -TenantsCSV Tenants.CSV -Target Source -TargetDomain domain.com` 
