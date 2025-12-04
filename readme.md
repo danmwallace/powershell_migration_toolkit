@@ -53,7 +53,7 @@ You will need to create (2) CSV files for using the script, with the following v
   * `SourceTenantID` : The `TenantID` from the Source tenant, found in the Azure portal.
   * `SourceTenantAdmin` : The `UserPrincipalName` of your Administrator account in the Source tenant, e.g `admin@domain.com`.
   * `DestinationTenantID` : The `TenantID` from the Destination tenant, found in the Azure portal.
-  * `DestinationAdmin` : The `UserPrincipalName`` of your Administrator account in the Destination tenant, e.g `admin@otherdomain.com`.
+  * `DestinationAdmin` : The `UserPrincipalName` of your Administrator account in the Destination tenant, e.g `admin@otherdomain.com`.
 
 **It is highly recommended you fill out the User data with 1-2 test accounts and run the script with those first, so you can get a feel for how the script operates.** I cannot emphasize this enough. The script does
 have some "safety" built in, but it is up to you to use this responsibly.**It is important to understand that the script will iterate through each row in the User CSV and make changes, and that you should test and become familiar with the script before running it across multiple accounts, or an entire organization... you've been warned.**
